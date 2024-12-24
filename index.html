@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎉 Happy Birthday Abdulmajeed! 🎂 - Created by Abdulmajeed</title>
+    <style>
+        /* Base Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff5e62, #ff9966);
+            text-align: center;
+            color: #333;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 50px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #ff4f58;
+            margin-bottom: 10px;
+            font-family: 'Georgia', serif;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        h6 {
+            font-size: 1.2rem;
+            color: #eee;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .emoji {
+            font-size: 4rem;
+            margin-bottom: 25px;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .countdown {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffcc00;
+            margin-bottom: 25px;
+        }
+
+        input[type="text"] {
+            padding: 15px;
+            width: 100%;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            border: 2px solid #ff4f58;
+            border-radius: 10px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: #ff9966;
+            box-shadow: 0 0 10px rgba(255, 153, 102, 0.6);
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: white;
+            background-color: #ff4f58;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #ff1f3d;
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        #response {
+            margin-top: 25px;
+            font-size: 1.2rem;
+            color: #28a745;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        #response.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 1rem;
+            color: #aaa;
+        }
+
+        .creator-name {
+            font-weight: bold;
+            color: #ff4f58;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px;
+                margin: 20px;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .emoji {
+                font-size: 3rem;
+            }
+
+            input[type="text"] {
+                padding: 12px;
+                font-size: 1rem;
+            }
+
+            button {
+                padding: 12px 25px;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="emoji">🎂</div>
+        <h1>Happy Birthday Abdulmajeed!</h1>
+        <h2>🎉 Let's Celebrate Your Day! 🎉</h2>
+        <h6>@20</h6>
+        <p>Your special day is on <strong>25th December 2024</strong>. Let’s make it unforgettable!</p>
+
+        <!-- Countdown Timer -->
+        <div id="countdown" class="countdown"></div>
+
+        <p>Write your heartfelt wishes for Abdulmajeed below and make his day even brighter!</p>
+        
+
+        <!-- Name Input -->
+        <input type="text" id="nameInput" placeholder="Enter your name..." aria-label="Enter your name" required>
+        
+        <!-- Wishes Input -->
+        <input type="text" id="wishInput" placeholder="Write your wishes here..." aria-label="Enter your wishes" required>
+        
+        <button onclick="submitWish()">Submit</button>
+        
+        
+
+        <div id="response" role="alert"></div>
+
+        <div class="footer">
+            <p>Website created with ❤️ by <span class="creator-name">Abdulmajeed</span></p>
+        </div>
+    </div>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const birthday = new Date('December 25, 2024 00:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = birthday - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+            if (distance < 0) {
+                document.getElementById("countdown").innerHTML = "🎉 It's your day! 🎂";
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+
+        // Function to escape HTML characters
+        function escapeHTML(str) {
+            return str.replace(/[&<>"']/g, char => ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#39;'
+            })[char]);
+        }
+
+        // Function to submit the wish
+        function submitWish() {
+    const inputField = document.getElementById("wishInput");
+    const wish = inputField.value.trim();
+
+    if (!wish) {
+        alert("Please write your wishes for Abdulmajeed.");
+        inputField.focus();
+        return;
+    }
+     src="thanks.html"
+    // Sanitize the user input
+    const sanitizedWish = escapeHTML(wish);
+
+    // Redirect to the thank-you page
+    window.location.href = "thanks.html";
+}
+
+        
+    </script>
+</body>
+</html>
